@@ -22,7 +22,9 @@ public class Part05Merge {
 
 	// TODO Merge flux1 and flux2 values with no interleave (flux1 values and then flux2 values)
 	Flux<User> mergeFluxWithNoInterleave(Flux<User> flux1, Flux<User> flux2) {
-		return null;
+
+		return Flux.mergeSequential(flux1,flux2);
+	//	return flux1.concatWith(flux2);
 	}
 
 //========================================================================================
