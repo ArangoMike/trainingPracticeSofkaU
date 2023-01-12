@@ -17,9 +17,10 @@ public class Part08OtherOperations {
 
 	// TODO Create a Flux of user from Flux of username, firstname and lastname.
 	Flux<User> userFluxFromStringFlux(Flux<String> usernameFlux, Flux<String> firstnameFlux, Flux<String> lastnameFlux) {
-		return null;
+		return Flux
+				.zip(usernameFlux, firstnameFlux, lastnameFlux)
+				.map(tuple -> new User(tuple.getT1(), tuple.getT2(), tuple.getT3())); // TO BE REMOVED
 	}
-
 //========================================================================================
 
 	// TODO Return the mono which returns its value faster
